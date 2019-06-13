@@ -66,7 +66,7 @@ class App extends Component {
           <div className="container">
             <h1>App</h1>
             <ul>
-              <li><a href="#/admin">Admin</a></li>
+              <li><a href="#/admin">Adminn</a></li>
               <li><a href="#/genre">Genre</a></li>
             </ul>
             <Child />
