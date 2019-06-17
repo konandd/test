@@ -3,37 +3,32 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { showMessage } from '../redux/message/actions';
 import { decrease, increase } from '../redux/counter/actions';
-import Admin from '../components/Admin';
-import Genre from '../components/Genre';
-import Home from '../components/Home';
 import { getTheme, switchTheme } from '../redux/theme/actions';
+import { getFirms, getLaptops } from '../redux/products/actions';
+import Navigation from '../components/Navigation';
+import ProductList from '../components/ProductList';
+import './style.css';
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      route: window.location.hash.substr(1),
     };
     this.initRedux();
   }
 
-  componentDidMount() {
-    window.addEventListener('hashchange', () => {
-      this.setState({
-        route: window.location.hash.substr(1),
-      });
-    });
-  }
 
     initRedux = () => {
-      const { actions: { getTheme } } = this.props;
+      const { actions: { getTheme, getFirms, getLaptops } } = this.props;
       getTheme();
+      getFirms();
+      getLaptops();
     };
 
     render() {
       const {
-        value, theme,
+        value, theme, firms,
         actions: {
           showMessage, increase, decrease, switchTheme,
         },
@@ -48,31 +43,20 @@ class App extends Component {
         },
       };
 
-      let Child;
-      switch (this.state.route) {
-        case '/admin': Child = Admin; break;
-        case '/genre': Child = Genre; break;
-        default: Child = Home;
-      }
-
       return (
-        <div style={theme ? themeCol.darck : themeCol.light}>
-          <h1 className="app_root">Test</h1>
-          <p>{value}</p>
-          <button type="button" onClick={() => showMessage({ text: 'fwef' })}>popka</button>
-          <button type="button" onClick={() => increase(value)}>increase</button>
-          <button type="button" onClick={() => decrease(value)}>decrease</button>
-          <button type="button" onClick={() => switchTheme(theme)}>theme</button>
-          <div className="container">
-            <h1>App</h1>
-            <ul>
-              <li><a href="#/admin">Adminn</a></li>
-              <li><a href="#/genre">Genre</a></li>
-            </ul>
-            <Child />
+        <React.Fragment>
+          <div style={theme ? themeCol.darck : themeCol.light}>
+            <h1 className="app_root">Test</h1>
+            <p>{value}</p>
+            <button type="button" onClick={() => showMessage({ text: 'fwef' })}>popka</button>
+            <button type="button" onClick={() => increase(value)}>increase</button>
+            <button type="button" onClick={() => decrease(value)}>decrease</button>
+            <button type="button" onClick={() => switchTheme(theme)}>theme</button>
           </div>
-
-        </div>
+          <Navigation>
+            <ProductList firms={firms} />
+          </Navigation>
+        </React.Fragment>
       );
     }
 }
@@ -81,6 +65,7 @@ function mapStateToProps(state) {
   return {
     value: state.counter.value,
     theme: state.theme.theme,
+    firms: state.products.firms,
   };
 }
 
@@ -93,6 +78,8 @@ function mapDispatchToProps(dispatch) {
         decrease,
         switchTheme,
         getTheme,
+        getFirms,
+        getLaptops,
       },
       dispatch,
     ),
