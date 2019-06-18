@@ -16,8 +16,6 @@ export function getFirms() {
 export function getLaptops() {
   return (dispatch) => {
     const laptops = products;
-    // eslint-disable-next-line no-console
-    console.log(laptops);
     dispatch({
       type: GET_LAPTOPS,
       payload: laptops,

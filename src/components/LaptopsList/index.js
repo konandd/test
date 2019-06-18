@@ -2,8 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import products from '../products';
 
-const LaptopsList = (props) => {
-  const key = props.match.params.name;
+const LaptopsList = ({ laptops, ...props }) => {
+  const key = props.location.pathname.slice(1);
+  // eslint-disable-next-line no-console
+  console.log(laptops[key]);
   return (
     <div>
       <ul>

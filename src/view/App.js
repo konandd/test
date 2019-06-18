@@ -28,7 +28,7 @@ class App extends Component {
 
     render() {
       const {
-        value, theme, firms,
+        value, theme, firms, laptops,
         actions: {
           showMessage, increase, decrease, switchTheme,
         },
@@ -53,8 +53,8 @@ class App extends Component {
             <button type="button" onClick={() => decrease(value)}>decrease</button>
             <button type="button" onClick={() => switchTheme(theme)}>theme</button>
           </div>
-          <Navigation>
-            <ProductList firms={firms} />
+          <Navigation firms={firms} laptops={laptops}>
+            <ProductList />
           </Navigation>
         </React.Fragment>
       );
@@ -66,6 +66,7 @@ function mapStateToProps(state) {
     value: state.counter.value,
     theme: state.theme.theme,
     firms: state.products.firms,
+    laptops: state.products.laptops,
   };
 }
 
