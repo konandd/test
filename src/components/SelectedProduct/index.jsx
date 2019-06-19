@@ -20,12 +20,14 @@ class SelectedProduct extends Component {
 
     render() {
       const { laptops } = this.props;
-      const name = this.props.location.pathname.split('/').splice(1, 1);
-      const id = this.props.location.pathname.split('/').splice(2);
+      const { name } = this.props.match.params;
+      const { id } = this.props.match.params;
       const currentLaptop = laptops[name][id];
+      // eslint-disable-next-line no-console
+      console.log(this.props.match.history);
       return (
         <div>
-          <Breadcrumb pathname={this.props.location.pathname} />
+          <Breadcrumb history={this.props.history} name={name} id={id} />
           <h1>{currentLaptop.name}</h1>
           <div className="description">{currentLaptop.text}</div>
           <Link to={`/${name}`}>Назад</Link>

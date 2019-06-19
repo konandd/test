@@ -11,12 +11,11 @@ Link {
     margin-left: 30px;
     display: flex;
     justify-content: start;
-    width: 150px;
+    width: 500px;
 }
 .breadcrumb :nth-child(1n+2):before {
     content: "/";
 }
 .breadcrumb :last-child {
-    pointer-events: none;
-    cursor: default;
+
 }

@@ -1,16 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Breadcrumb = ({ pathname }) => {
-  // eslint-disable-next-line no-console
-  console.log(pathname);
-  return (
-    <div className="breadcrumb"> {
-        pathname.split('/').map(p => (
-          <Link to={`/${p}`}>go to {p}</Link>
-        ))
-      }
-    </div>
-  );
-};
+const Breadcrumb = ({ history, name, id }) => (
+  <div className="breadcrumb">
+    <button type="button" onClick={() => (history.push('/'))}>go to main</button>
+    <button type="button" onClick={() => (history.push(`/${name}`))}>laptops {name}</button>
+    {id ? <button type="button" onClick={() => (history.push(`/${name}/${id}`))}>{name} {id}</button> : ''}
+  </div>
+);
 export default Breadcrumb;

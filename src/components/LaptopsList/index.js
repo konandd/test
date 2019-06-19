@@ -19,10 +19,10 @@ class LaptopsList extends Component {
 
     render() {
       const { laptops } = this.props;
-      const key = this.props.location.pathname.slice(1);
+      const key = this.props.match.params.name;
       return (
         <div>
-          <Breadcrumb pathname={this.props.location.pathname} />
+          <Breadcrumb history={this.props.history} name={key} />
           <ul>
             {laptops[key].map(p => (
               <li key={p.id}><Link to={`/${key}/${p.id}`}>{p.name}</Link></li>))}
