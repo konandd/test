@@ -8,11 +8,14 @@ Link {
 }
 
 .breadcrumb {
+    margin-left: 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     width: 150px;
 }
-
+.breadcrumb :nth-child(1n+2):before {
+    content: "/";
+}
 .breadcrumb :last-child {
     pointer-events: none;
     cursor: default;
