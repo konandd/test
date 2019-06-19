@@ -7,12 +7,12 @@ import LaptopsList from '../LaptopsList';
 
 const history = createBrowserHistory();
 
-const Navigation = ({ firms, laptops }) => (
+const Navigation = () => (
   <Router history={history}>
     <Switch>
-      <Route exact path="/" render={props => <ProductList firms={firms} {...props} />} />
+      <Route exact path="/" component={ProductList} />
       <Switch>
-        <Route exact path="/:name" render={props => <LaptopsList laptops={laptops} {...props} />} />
+        <Route exact path="/:name" component={LaptopsList} />
         <Route path="/:name/:id" component={SelectedProduct} />
       </Switch>
     </Switch>

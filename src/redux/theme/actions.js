@@ -15,8 +15,6 @@ export function switchTheme(theme) {
 export function getTheme() {
   return (dispatch) => {
     const currentTheme = localStorage.getItem('theme');
-    // eslint-disable-next-line no-console
-    console.log(currentTheme);
     dispatch({
       type: GET_THEME,
       payload: JSON.parse(currentTheme),

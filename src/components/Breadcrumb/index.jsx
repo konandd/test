@@ -1,10 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Breadcrumb = (props) => {
-  const paths = props.path;
+const Breadcrumb = ({ pathname }) => {
   // eslint-disable-next-line no-console
-  console.log(paths);
-  return (<div>{ paths }</div>);
+  console.log(pathname);
+  return (
+    <div className="breadcrumb"> {
+        pathname.split('/').map(p => (
+          <Link to={`/${p}`}>go to {p}</Link>
+        ))
+      }
+    </div>
+  );
 };
-
 export default Breadcrumb;

@@ -81,11 +81,6 @@ const laptops = {
           + 'Гарантия — 1 год',
     },
   ],
-  all() { return ['msi', 'asus']; },
-  allProducts(key) { return laptops[key]; },
-  get(key, id) {
-    return laptops[key][id];
-  },
 };
 
 export default laptops;
