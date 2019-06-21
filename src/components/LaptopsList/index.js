@@ -27,7 +27,7 @@ class LaptopsList extends Component {
             {laptops[key].map(p => (
               <li key={p.id}><Link to={`/${key}/${p.id}`}>{p.name}</Link></li>))}
           </ul>
-          <Link to="/">Назад</Link>
+          <button type="button" onClick={this.props.history.goBack}>Back</button>
         </div>
       );
     }

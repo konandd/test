@@ -30,7 +30,9 @@ class SelectedProduct extends Component {
           <Breadcrumb history={this.props.history} name={name} id={id} />
           <h1>{currentLaptop.name}</h1>
           <div className="description">{currentLaptop.text}</div>
-          <Link to={`/${name}`}>Назад</Link>
+          <button type="button" onClick={this.props.history.goBack}>Back</button>
+          <button type="button" onClick={() => (this.props.history.push(`/${name}/${+id + 1}`))}>GG</button>
+          <Link to={`/${name}/${+id + 1}`}>Next</Link>
         </div>
       );
     }
