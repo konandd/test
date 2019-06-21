@@ -23,8 +23,6 @@ class SelectedProduct extends Component {
       const { name } = this.props.match.params;
       const { id } = this.props.match.params;
       const currentLaptop = laptops[name][id];
-      // eslint-disable-next-line no-console
-      console.log(this.props.match.history);
       return (
         <div>
           <Breadcrumb history={this.props.history} name={name} id={id} />
