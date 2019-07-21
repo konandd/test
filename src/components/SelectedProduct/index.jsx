@@ -29,7 +29,7 @@ class SelectedProduct extends Component {
           <h1>{currentLaptop.name}</h1>
           <div className="description">{currentLaptop.text}</div>
           <button type="button" onClick={this.props.history.goBack}>Back</button>
-          <button type="button" onClick={() => (this.props.history.push(`/${name}/${+id + 1}`))}>GG</button>
+          <button type="button" onClick={() => (this.props.history.push(`/${name}/${+id + 1}`))}>Button NEXT</button>
           <Link to={`/${name}/${+id + 1}`}>Next</Link>
         </div>
       );
