@@ -48,7 +48,7 @@ class App extends Component {
           <div style={theme ? themeCol.darck : themeCol.light}>
             <h1 className="app_root">Test</h1>
             <p>{value}</p>
-            <button type="button" onClick={() => showMessage({ text: 'fwef' })}>popka</button>
+            <button type="button" onClick={() => showMessage({ text: 'fwef' })}>massage</button>
             <button type="button" onClick={() => increase(value)}>increase</button>
             <button type="button" onClick={() => decrease(value)}>decrease</button>
             <button type="button" onClick={() => switchTheme(theme)}>theme</button>
